@@ -84,6 +84,26 @@ make test      # unit/integration tests
 make lint      # ruff, mypy, codespell, etc.
 ```
 
+### Evaluate on a public multi-object image set
+
+You can quickly exercise the agent against the sample dataset at
+`https://github.com/inbarhub/single_image_dataset/tree/main/images` by running:
+
+```bash
+uv run python -m sam_agent.utils.dataset_evaluator \
+  --prompt "Describe the picture: what kind of objects can you see on it, and how many of them?" \
+  --output data/eval-results.json
+```
+
+The script downloads the dataset, sends each image to the configured Gemini
+vision model, and writes responses to `data/eval-results.json`.
+
+Prerequisites for the command above:
+
+* `GOOGLE_API_KEY` exported in your shell.
+* Network egress to fetch PyPI packages (notably `google-genai` and `requests`)
+  and to download the sample images from GitHub.
+
 ---
 
 ## ☁️ Deploy to Google Cloud
