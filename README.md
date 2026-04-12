@@ -98,6 +98,12 @@ uv run python -m sam_agent.utils.dataset_evaluator \
 The script downloads the dataset, sends each image to the configured Gemini
 vision model, and writes responses to `data/eval-results.json`.
 
+Prerequisites for the command above:
+
+* `GOOGLE_API_KEY` exported in your shell.
+* Network egress to fetch PyPI packages (notably `google-genai` and `requests`)
+  and to download the sample images from GitHub.
+
 ---
 
 ## ☁️ Deploy to Google Cloud
